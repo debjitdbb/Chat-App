@@ -1,5 +1,7 @@
 Android Chat SDK
 
+Created by Debjit Datta(10200217055) and Anirban Nath(10200217067)
+
 ### Overview         
 
 <img align="right" src="https://raw.githubusercontent.com/debjit/debjit-Android-SDK/master/img/android.png" />
