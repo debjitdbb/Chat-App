@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+ext {
+    defaultCompileSdkVersion = 28
+    defaultTargetSdkVersion = 28
+    defaultSupportLibVersion = "28.0.0"
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+repositories {
+    jcenter()
+    maven { url 'https://maven.fabric.io/public' }
+}
+android {
+    compileSdkVersion rootProject.hasProperty("compileSdkVersion") ? rootProject.compileSdkVersion : defaultCompileSdkVersion
+
+
+    defaultConfig {
+        applicationId "com.mobicomkit.sample"
+        minSdkVersion 16
+        targetSdkVersion rootProject.hasProperty("targetSdkVersion") ? rootProject.targetSdkVersion : defaultTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled false
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+
+        abortOnError false
+
+    }
+
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/ECLIPSE_.SF'
+        exclude 'META-INF/ECLIPSE_.RSA'
+        exclude 'META-INF/ECLIPSE_.DSA'
+        exclude 'META-INF/*.RSA'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //Note: use this for customization
+    api project(':mobicomkitui')
+    //api 'com.applozic.communication.uiwidget:mobicomkitui:5.76'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.5.7@aar') {
+        transitive = true;
+    }
+    implementation "androidx.annotation:annotation:1.1.0"
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation('org.mockito:mockito-android:2.6.3') {
+        exclude group: 'org.hamcrest', module: 'hamcrest-core'
+    }
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'com.google.dagger:dagger:2.13'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.13'
+    androidTestImplementation('org.droidparts.dexmaker:dexmaker:1.5') {
+        exclude module: 'objenesis'
+    }
+    androidTestImplementation 'junit:junit:4.12'
+}
+apply plugin: 'com.google.gms.google-services'

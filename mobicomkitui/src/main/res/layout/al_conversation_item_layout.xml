@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="68dp">
+
+
+    <TextView
+        android:id="@+id/alphabeticImage"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/mobiframework_circular_text_view"
+        android:gravity="center"
+        android:text="A"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/contactImage"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/applozic_group_icon"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/profileImageBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="alphabeticImage,contactImage" />
+
+    <TextView
+        android:id="@+id/smReceivers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:singleLine="true"
+        android:text="Ashish Kanswal"
+        android:textDirection="locale"
+        android:textIsSelectable="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/createdAtTime"
+        app:layout_constraintStart_toStartOf="@+id/profileImageBarrier"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/createdAtTime"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="Now"
+        android:textColor="@color/message_details_text_color"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/smReceivers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/smReceivers" />
+
+
+    <ImageView
+        android:id="@+id/attachmentIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginStart="12dp"
+        android:src="@drawable/applozic_ic_action_attachment"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/profileImageBarrier"
+        app:layout_constraintTop_toBottomOf="@+id/smReceivers" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="start"
+        app:layout_goneMarginLeft="12dp"
+        app:layout_goneMarginStart="12dp"
+        android:maxLines="1"
+        android:paddingEnd="30dp"
+        android:paddingRight="30dp"
+        android:text="This was sent by some one testing this layout heheheheheheheheheh"
+        android:textAlignment="gravity"
+        android:textColor="#999"
+        android:textDirection="locale"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/unreadSmsCount"
+        app:layout_constraintStart_toEndOf="@+id/attachmentIcon"
+        app:layout_constraintTop_toBottomOf="@+id/smReceivers" />
+
+    <TextView
+        android:id="@+id/unreadSmsCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:background="@drawable/unread_message_background"
+        android:gravity="end"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="4"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="9sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/message"
+        app:layout_constraintTop_toTopOf="@+id/message" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.applozic.mobicomkit">
+
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        tools:node="merge" />
+    <uses-permission
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED"
+        tools:node="merge" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        tools:node="merge" />
+
+    <application>
+        <meta-data
+            android:name="main_folder_name"
+            android:value="Applozic"
+            tools:node="merge" />
+
+        <service
+            android:name="com.applozic.mobicomkit.api.conversation.MessageIntentService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            tools:node="merge" />
+        <service
+            android:name="com.applozic.mobicomkit.api.conversation.ApplozicIntentService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            tools:node="merge" />
+        <service
+            android:name="com.applozic.mobicomkit.api.conversation.ApplozicMqttIntentService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            tools:node="merge" />
+        <service
+            android:name="com.applozic.mobicomkit.api.people.UserIntentService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            tools:node="merge" />
+
+        <service
+            android:name="com.applozic.mobicomkit.api.conversation.ConversationIntentService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            tools:node="merge" />
+
+        <receiver
+            android:name="com.applozic.mobicomkit.broadcast.TimeChangeBroadcastReceiver"
+            tools:node="merge">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.applozic.mobicomkit.broadcast.ConnectivityReceiver"
+            android:enabled="true"
+            android:exported="true"
+            tools:node="merge">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

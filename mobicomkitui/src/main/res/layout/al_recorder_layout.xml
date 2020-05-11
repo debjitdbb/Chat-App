@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/audio_record_frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="53dp"
+    android:layout_gravity="bottom"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_weight="2"
+    android:background="@drawable/input"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <include layout="@layout/reply_message_layout" />
+
+    <LinearLayout
+        android:id="@+id/slide_LinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:orientation="horizontal"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/slide_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="1dp"
+            android:src="@drawable/slide_arrow_left" />
+
+        <TextView
+            android:id="@+id/slide_to_cancel_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
+            android:text="@string/slide_to_cancel"
+            android:textColor="#999999"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center"
+        android:orientation="horizontal"
+        android:paddingEnd="13dp"
+        android:paddingLeft="13dp"
+        android:paddingStart="13dp">
+
+        <ImageView
+            android:id="@+id/audio_record_icon_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_marginTop="1dp"
+            android:src="@drawable/applozic_audio_record" />
+
+        <TextView
+            android:id="@+id/recording_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
+            android:text="00:00"
+            android:textColor="#4d4c4b"
+            android:textSize="16dp" />
+    </LinearLayout>
+</FrameLayout>

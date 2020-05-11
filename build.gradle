@@ -1,0 +1,58 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://maven.google.com'
+            // Alternative URL is 'https://dl.google.com/dl/android/maven2/'
+        }
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.google.gms:google-services:4.0.1'
+
+      /*  classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1'
+          classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+          classpath 'com.github.dcendents:android-maven-plugin:1.2'
+          classpath 'com.novoda:bintray-release:0.3.4'*/
+// NOTE: Do not place your application dependencies here; they belong
+// in the individual module build.gradle files
+    }
+
+}
+
+allprojects {
+
+    repositories {
+        maven {
+            url 'https://maven.google.com'
+            // Alternative URL is 'https://dl.google.com/dl/android/maven2/'
+        }
+        jcenter()
+        google()
+    }
+}
+
+/*ext {
+    compileSdkVersion = 28
+    targetSdkVersion = 28
+    buildToolVersion = "28.0.3"
+    supportLibVersion = "28.0.0"
+    glideVersion = "4.8.0"
+    firebaseVersison = "17.3.0"
+    googleMapsVersion = "15.0.1"
+    locationServicesVersion = "15.0.1"
+    constraintLayoutVersion = "1.1.3"
+    circleImageViewVersion = "2.2.0"
+    imageCropperVersion = "2.7.0"
+    googleGsonVersion = "2.8.5"
+}*/
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+subprojects {
+    tasks.withType(Javadoc).all { enabled = false }
+}
