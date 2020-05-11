@@ -2,29 +2,29 @@ Android Chat SDK
 
 ### Overview         
 
-<img align="right" src="https://raw.githubusercontent.com/AppLozic/Applozic-Android-SDK/master/img/android.png" />
+<img align="right" src="https://raw.githubusercontent.com/debjit/debjit-Android-SDK/master/img/android.png" />
 
 
 Open source Android Chat SDK / Messaging SDK that lets you add real time chat and in-app messaging in your mobile (android, iOS) applications and website.
 
-Signup at [https://www.applozic.com/signup.html](https://www.applozic.com/signup.html?utm_source=github&utm_medium=readme&utm_campaign=android) to get the App ID.
+Signup at [https://www.debjit.com/signup.html](https://www.debjit.com/signup.html?utm_source=github&utm_medium=readme&utm_campaign=android) to get the App ID.
 
-Applozic One to One and Group Chat SDK
+debjit One to One and Group Chat SDK
 
 
 
 ### Getting Started       
 
 
-To integrate android chat library into your android app, signup at [Applozic](https://www.applozic.com/signup.html?utm_source=github&utm_medium=readme&utm_campaign=android) to get the App ID.
+To integrate android chat library into your android app, signup at [debjit](https://www.debjit.com/signup.html?utm_source=github&utm_medium=readme&utm_campaign=android) to get the App ID.
 
-Documentation: [Applozic Android Chat & Messaging SDK Documentation](https://www.applozic.com/docs/android-chat-sdk.html?utm_source=github&utm_medium=readme&utm_campaign=android)
+Documentation: [debjit Android Chat & Messaging SDK Documentation](https://www.debjit.com/docs/android-chat-sdk.html?utm_source=github&utm_medium=readme&utm_campaign=android)
 
 
 
 #### Step 1: Add the following in your build.gradle dependency:      
 
-`implementation 'com.applozic.communication.uiwidget:mobicomkitui:5.76' `
+`implementation 'com.debjit.communication.uiwidget:mobicomkitui:5.76' `
 
 
 Add the following in gradle android target:      
@@ -53,16 +53,16 @@ android {
 **Note**: Add Permissions outside the application Tag ``` <application>  ```
 ```
 
-<meta-data android:name="com.applozic.application.key"
-           android:value="<YOUR_APPLOZIC_APP_ID" /> <!-- Applozic App ID -->
+<meta-data android:name="com.debjit.application.key"
+           android:value="<YOUR_debjit_APP_ID" /> <!-- debjit App ID -->
 
-<meta-data android:name="com.applozic.mobicomkit.notification.smallIcon"
+<meta-data android:name="com.debjit.mobicomkit.notification.smallIcon"
            android:resource="YOUR_LAUNCHER_SMALL_ICON" /> <!-- Launcher white Icon -->
            
 <meta-data android:name="com.google.android.geo.API_KEY"
            android:value="YOUR_GEO_API_KEY" />  <!--Replace with your geo api key from google developer console  --> 
 <!-- For testing purpose use AIzaSyAYB1vPc4cpn_FJv68eS_ZGe1UasBNwxLI
-To disable the location sharing via map add this line ApplozicSetting.getInstance(context).disableLocationSharingViaMap(); in onSuccess of Applozic UserLoginTask -->   
+To disable the location sharing via map add this line debjitSetting.getInstance(context).disableLocationSharingViaMap(); in onSuccess of debjit UserLoginTask -->   
             
 <meta-data android:name="com.package.name" 
            android:value="${applicationId}" /> <!-- NOTE: Do NOT change this, it should remain same i.e 'com.package.name' -->
@@ -79,11 +79,11 @@ To disable the location sharing via map add this line ApplozicSetting.getInstanc
 
 Paste the following in your androidmanifest.xml:        
 ```
-<activity android:name="com.applozic.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
+<activity android:name="com.debjit.mobicomkit.uiwidgets.conversation.activity.ConversationActivity"
            android:configChanges="keyboardHidden|screenSize|smallestScreenSize|screenLayout|orientation"
            android:label="@string/app_name"
            android:parentActivityName="<APP_PARENT_ACTIVITY>"
-           android:theme="@style/ApplozicTheme"
+           android:theme="@style/debjitTheme"
            android:launchMode="singleTask"
            tools:node="replace">
       <!-- Parent activity meta-data to support API level 7+ -->
@@ -105,14 +105,14 @@ User user = new User();
 user.setUserId(userId); //userId it can be any unique user identifier
 user.setDisplayName(displayName); //displayName is the name of the user which will be shown in chat messages
 user.setEmail(email); //optional  
-user.setAuthenticationTypeId(User.AuthenticationType.APPLOZIC.getValue());  //User.AuthenticationType.APPLOZIC.getValue() for password verification from Applozic server and User.AuthenticationType.CLIENT.getValue() for access Token verification from your server set access token as password
-user.setPassword(""); //optional, leave it blank for testing purpose, read this if you want to add additional security by verifying password from your server https://www.applozic.com/docs/configuration.html#access-token-url
+user.setAuthenticationTypeId(User.AuthenticationType.debjit.getValue());  //User.AuthenticationType.debjit.getValue() for password verification from debjit server and User.AuthenticationType.CLIENT.getValue() for access Token verification from your server set access token as password
+user.setPassword(""); //optional, leave it blank for testing purpose, read this if you want to add additional security by verifying password from your server https://www.debjit.com/docs/configuration.html#access-token-url
 user.setImageLink("");//optional,pass your image link
 
- Applozic.connectUser(context, user, new AlLoginHandler() {
+ debjit.connectUser(context, user, new AlLoginHandler() {
                 @Override
                 public void onSuccess(RegistrationResponse registrationResponse, Context context) {
-                    // After successful registration with Applozic server the callback will come here 
+                    // After successful registration with debjit server the callback will come here 
                 }
 
                 @Override
@@ -123,13 +123,13 @@ user.setImageLink("");//optional,pass your image link
 ```
 
 If it is a new user, new user account will get created else existing user will be logged in to the application.
-You can check if user is logged in to applozic or not by using ``` Applozic.isConnected(context) ```
+You can check if user is logged in to debjit or not by using ``` debjit.isConnected(context) ```
 
 
 
 #### Step 4: Push Notification Setup
 
-***Go to Applozic Dashboard, Edit Application -> Push Notification -> Android -> GCM/FCM Server Key.***
+***Go to debjit Dashboard, Edit Application -> Push Notification -> Android -> GCM/FCM Server Key.***
 
 #### Firebase Cloud Messaging (FCM)  is already enabled in my app
 
@@ -140,7 +140,7 @@ You can check if user is logged in to applozic or not by using ``` Applozic.isCo
 
 ```
 if(MobiComUserPreference.getInstance(context).isRegistered()) {
-  Applozic.registerForPushNotification(context, registrationToken, new AlPushNotificationHandler() {
+  debjit.registerForPushNotification(context, registrationToken, new AlPushNotificationHandler() {
                 @Override
                 public void onSuccess(RegistrationResponse registrationResponse) {
                    
@@ -184,7 +184,7 @@ If you already have GCM enabled in your app, add the below code and pass the GCM
 
 ```
 if(MobiComUserPreference.getInstance(context).isRegistered()) {
-  Applozic.registerForPushNotification(context, registrationToken, new AlPushNotificationHandler() {
+  debjit.registerForPushNotification(context, registrationToken, new AlPushNotificationHandler() {
                 @Override
                 public void onSuccess(RegistrationResponse registrationResponse) {
                    
@@ -224,12 +224,12 @@ if(MobiComPushReceiver.isMobiComPushNotification(data)) {
 #### Don't have Android Push Notification code ?
 
 To Enable Android Push Notification using Firebase Cloud Messaging (FCM) visit the [Firebase console](https://console.firebase.google.com) and create new project, add the google service json to your app, configure the build.gradle files in your app ,finally get server key from project settings and update in  
-***[Applozic Dashboard](https://console.applozic.com/settings/pushnotification) under Push Notification -> Android -> GCM/FCM Server Key.***
+***[debjit Dashboard](https://console.debjit.com/settings/pushnotification) under Push Notification -> Android -> GCM/FCM Server Key.***
 
 
-In case, if you don't have the existing FCM related code, then copy the push notification related files from Applozic sample app to your project from the below github link
+In case, if you don't have the existing FCM related code, then copy the push notification related files from debjit sample app to your project from the below github link
 
-[Github push notification code link](https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app/src/main/java/com/applozic/mobicomkit/sample/pushnotification)
+[Github push notification code link](https://github.com/debjit/debjit-Android-SDK/tree/master/app/src/main/java/com/debjit/mobicomkit/sample/pushnotification)
 
 
 And add below code in your androidmanifest.xml file
@@ -245,7 +245,7 @@ android:stopWithTask="false">
 #### Setup PushNotificationTask in UserLoginTask "onSuccess" (refer Step 3).
 
 ```
-Applozic.registerForPushNotification(context, Applozic.getInstance(context).getDeviceRegistrationId(), new   AlPushNotificationHandler() {
+debjit.registerForPushNotification(context, debjit.getInstance(context).getDeviceRegistrationId(), new   AlPushNotificationHandler() {
                 @Override
                 public void onSuccess(RegistrationResponse registrationResponse) {
                    
@@ -285,7 +285,7 @@ startActivity(intent);
 
 
 ```
-Applozic.logoutUser(context, new AlLogoutHandler() {
+debjit.logoutUser(context, new AlLogoutHandler() {
                 @Override
                 public void onSuccess(Context context) {
                     
@@ -307,11 +307,11 @@ Applozic.logoutUser(context, new AlLogoutHandler() {
  
 ```
  #keep json classes                
- -keepclassmembernames class * extends com.applozic.mobicommons.json.JsonMarker {
+ -keepclassmembernames class * extends com.debjit.mobicommons.json.JsonMarker {
  	!static !transient <fields>;
  }
 
- -keepclassmembernames class * extends com.applozic.mobicommons.json.JsonParcelableMarker {
+ -keepclassmembernames class * extends com.debjit.mobicommons.json.JsonParcelableMarker {
  	!static !transient <fields>;
  }
  #GSON Config          
@@ -334,18 +334,18 @@ Open project in Android Studio to run the sample app in your device. Send messag
 
 
 Display name for users:
-You can either choose to handle display name from your app or have Applozic handle it.
+You can either choose to handle display name from your app or have debjit handle it.
 From your app's first activity, set the following to disable display name feature:
-ApplozicClient.getInstance(this).setHandleDisplayName(false);
+debjitClient.getInstance(this).setHandleDisplayName(false);
 By default, the display name feature is enabled.
 
 
 ### Documentation:
-For advanced options and customization, visit [Applozic Android Chat & Messaging SDK Documentation](https://www.applozic.com/docs/android-chat-sdk.html?utm_source=github&utm_medium=readme&utm_campaign=android)
+For advanced options and customization, visit [debjit Android Chat & Messaging SDK Documentation](https://www.debjit.com/docs/android-chat-sdk.html?utm_source=github&utm_medium=readme&utm_campaign=android)
 
 
 ### Changelog
-[Changelog](https://github.com/AppLozic/Applozic-Android-SDK/blob/master/CHANGELOG.md)
+[Changelog](https://github.com/debjit/debjit-Android-SDK/blob/master/CHANGELOG.md)
 
 
 #### Features:
@@ -391,24 +391,24 @@ For advanced options and customization, visit [Applozic Android Chat & Messaging
 
 
 ### Sample source code to build messenger and chat app
-https://github.com/AppLozic/Applozic-Android-SDK/tree/master/app
+https://github.com/debjit/debjit-Android-SDK/tree/master/app
 
 
 ## Help
 
-We provide support over at [StackOverflow] (http://stackoverflow.com/questions/tagged/applozic) when you tag using applozic, ask us anything.
+We provide support over at [StackOverflow] (http://stackoverflow.com/questions/tagged/debjit) when you tag using debjit, ask us anything.
 
-Applozic is the best android chat sdk for instant messaging, still not convinced? Write to us at github@applozic.com and we will be happy to schedule a demo for you.
+debjit is the best android chat sdk for instant messaging, still not convinced? Write to us at github@debjit.com and we will be happy to schedule a demo for you.
 
 
 ### Free Android Chat SDK
-Special plans for startup and open source contributors, write to us at github@applozic.com 
+Special plans for startup and open source contributors, write to us at github@debjit.com 
 
 
 ## Github projects
 
-Android Chat SDK https://github.com/AppLozic/Applozic-Android-SDK
+Android Chat SDK https://github.com/debjit/debjit-Android-SDK
 
-Web Chat Plugin https://github.com/AppLozic/Applozic-Web-Plugin
+Web Chat Plugin https://github.com/debjit/debjit-Web-Plugin
 
-iOS Chat SDK https://github.com/AppLozic/Applozic-iOS-SDK
+iOS Chat SDK https://github.com/debjit/debjit-iOS-SDK
